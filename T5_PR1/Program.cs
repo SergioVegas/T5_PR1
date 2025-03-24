@@ -20,7 +20,8 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapStaticAssets();
-app.MapRazorPages()
-   .WithStaticAssets();
+app.MapRazorPages();
+app.MapGet("/", () => Results.Redirect("/Menu")); //Aquí he posat la pàgina inicial on ha d'aparèixer quan iniciem el programa.
+
 
 app.Run();

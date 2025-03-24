@@ -1,0 +1,191 @@
+﻿@page
+@model T5_PR1.Pages.EnergyIndicatorModel
+@{
+    ViewData["Title"] = "Indicador energetic";
+    string prevDisabled = Model.PageNumber <= 1 ? "disabled" : "";
+    string nextDisabled = Model.PageNumber >= Model.TotalPages ? "disabled" : "";
+}
+<h1>@ViewData["Title"]</h1>
+<br />
+<h2>Anàlisis estadístiques</h2>
+
+<h3>
+    Registres amb producció neta superior a 3000
+</h3>
+@if (Model.produccionOver3000.Any())
+{
+    <ul>
+        @foreach (var information in Model.produccionOver3000)
+        {
+            <li>@information.Data - Producció neta: @information.CDEEBC_ProdNeta</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No hi ha dades disponitbles</p>
+}
+
+<h3>
+    Registres amb consum de gasolina superior a 100
+</h3>
+@if (Model.gasOver100.Any())
+{
+    <ul>
+        @foreach (var information in Model.gasOver100)
+        {
+            <li>@information.Data - Gasolina: @information.CCAC_GasolinaAuto</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No hi ha dades disponitbles</p>
+}
+<h3>
+    Mitjana de producció neta per cada any
+</h3>
+@if (Model.electricDemandAndProdcutionAvailable.Any())
+{
+    <ul>
+        @foreach (var information in Model.electricDemandAndProdcutionAvailable)
+        {
+            <li>@information.Data - Mitjana:  </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No hi ha dades disponitbles</p>
+}
+<h3>
+    Registres amb demanda elèctrica superior a 4000 i producció disponible inferior a 300
+
+</h3>
+@if (Model.electricDemandAndProdcutionAvailable.Any())
+{
+    <ul>
+        @foreach (var information in Model.electricDemandAndProdcutionAvailable)
+        {
+            <li> @information.Data -  Demanda electrica: @information.CDEEBC_DemandaElectr - Producció disponible: @information.CDEEBC_ProdDisp </li>
+        }
+    </ul>
+}
+else
+{
+        
+    <p>No hi ha dades disponitbles</p>
+}
+
+<br />
+<h2>Resum consum realitzats</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().Data)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().PBEE_Hidroelectr)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().PBEE_Carbo)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().PBEE_GasNat)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().PBEE_Fuel_Oil)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().PBEE_CiclComb)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().PBEE_Nuclear)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().CDEEBC_ProdBruta)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().CDEEBC_ConsumAux)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().CDEEBC_ProdNeta)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().CDEEBC_ConsumBomb)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().CDEEBC_ProdDisp)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().CDEEBC_TotVendesXarxaCentral)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().CDEEBC_SaldoIntercanviElectr)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().CDEEBC_DemandaElectr)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().CDEEBC_TotalEBCMercatRegulat)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().CDEEBC_TotalEBCMercatLliure)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEE_Industria)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEE_Terciari)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEE_Domestic)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEE_Primari)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEE_Energetic)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEEI_ConsObrPub)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEEI_SiderFoneria)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEEI_Metalurgia)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEEI_IndusVidre)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEEI_CimentsCalGuix)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEEI_AltresMatConstr)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEEI_QuimPetroquim)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEEI_ConstrMedTrans)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEEI_RestaTransforMetal)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEEI_AlimBegudaTabac)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEEI_TextilConfecCuirCalçat)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEEI_PastaPaperCartro)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().FEEI_AltresIndus)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().DGGN_PuntFrontEnagas)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().DGGN_DistrAlimGNL)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().DGGN_ConsumGNCentrTerm)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().CCAC_GasolinaAuto)</th>
+            <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().CCAC_GasoilA)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CurrentPageEnergeticIndicators)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Data)</td>
+                <td>@Html.DisplayFor(modelItem => item.PBEE_Hidroelectr)</td>
+                <td>@Html.DisplayFor(modelItem => item.PBEE_Carbo)</td>
+                <td>@Html.DisplayFor(modelItem => item.PBEE_GasNat)</td>
+                <td>@Html.DisplayFor(modelItem => item.PBEE_Fuel_Oil)</td>
+                <td>@Html.DisplayFor(modelItem => item.PBEE_CiclComb)</td>
+                <td>@Html.DisplayFor(modelItem => item.PBEE_Nuclear)</td>
+                <td>@Html.DisplayFor(modelItem => item.CDEEBC_ProdBruta)</td>
+                <td>@Html.DisplayFor(modelItem => item.CDEEBC_ConsumAux)</td>
+                <td>@Html.DisplayFor(modelItem => item.CDEEBC_ProdNeta)</td>
+                <td>@Html.DisplayFor(modelItem => item.CDEEBC_ConsumBomb)</td>
+                <td>@Html.DisplayFor(modelItem => item.CDEEBC_ProdDisp)</td>
+                <td>@Html.DisplayFor(modelItem => item.CDEEBC_TotVendesXarxaCentral)</td>
+                <td>@Html.DisplayFor(modelItem => item.CDEEBC_SaldoIntercanviElectr)</td>
+                <td>@Html.DisplayFor(modelItem => item.CDEEBC_DemandaElectr)</td>
+                <td>@Html.DisplayFor(modelItem => item.CDEEBC_TotalEBCMercatRegulat)</td>
+                <td>@Html.DisplayFor(modelItem => item.CDEEBC_TotalEBCMercatLliure)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEE_Industria)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEE_Terciari)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEE_Domestic)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEE_Primari)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEE_Energetic)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEEI_ConsObrPub)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEEI_SiderFoneria)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEEI_Metalurgia)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEEI_IndusVidre)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEEI_CimentsCalGuix)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEEI_AltresMatConstr)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEEI_QuimPetroquim)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEEI_ConstrMedTrans)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEEI_RestaTransforMetal)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEEI_AlimBegudaTabac)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEEI_TextilConfecCuirCalçat)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEEI_PastaPaperCartro)</td>
+                <td>@Html.DisplayFor(modelItem => item.FEEI_AltresIndus)</td>
+                <td>@Html.DisplayFor(modelItem => item.DGGN_PuntFrontEnagas)</td>
+                <td>@Html.DisplayFor(modelItem => item.DGGN_DistrAlimGNL)</td>
+                <td>@Html.DisplayFor(modelItem => item.DGGN_ConsumGNCentrTerm)</td>
+                <td>@Html.DisplayFor(modelItem => item.CCAC_GasolinaAuto)</td>
+                <td>@Html.DisplayFor(modelItem => item.CCAC_GasoilA)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pagination">
+    <a asp-page="./EnergyIndicator" asp-route-pageNumber="@(Model.PageNumber - 1)"
+       class="btn btn-primary @prevDisabled">
+        Anterior
+    </a>
+
+    <span>Pàgina @Model.PageNumber de @Model.TotalPages </span>
+
+    <a asp-page="./EnergyIndicator" asp-route-pageNumber="@(Model.PageNumber + 1)"
+       class="btn btn-primary @nextDisabled">
+        Següent
+    </a>
+</div>
+<br />
+<a asp-page="./AddEnergyIndicator" class="btn btn-primary">Afegir</a>
+

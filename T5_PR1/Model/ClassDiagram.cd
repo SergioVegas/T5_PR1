@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="T4._PR1._Practica_1.EnegyClass.EnergySystem" Collapsed="true">
+    <Position X="12.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAEiECAAAAAAAADAAAAAAQAAAAAQAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Model\EnergyClasses\EnergySystem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="T4._PR1._Practica_1.EnegyClass.HidroelectricSystem" Collapsed="true">
+    <Position X="12.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\EnergyClasses\HidroelectricSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="T4_PR1.Model.EnergyClasses.Simulation" Collapsed="true">
+    <Position X="7.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEiEAAAAAAAAABAAAQAAAAAAAAUAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Model\EnergyClasses\Simulation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="T4._PR1._Practica_1.EnegyClass.SolarSystem" Collapsed="true">
+    <Position X="15" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\EnergyClasses\SolarSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="T4._PR1._Practica_1.EnegyClass.WindSystem" Collapsed="true">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\EnergyClasses\WindSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="T4_PR1.Model.WaterConsumption" Collapsed="true">
+    <Position X="7.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAhAAAAABMACAAAAAAAAAAQAAAAAAAAAAABAA=</HashCode>
+      <FileName>Model\WaterConsumption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="T4_PR1.Model.EnergeticIndicator" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIIhAQQIZAEgDEQAAQAIAAsICAIIQBAhECIAgAAAAwE=</HashCode>
+      <FileName>Model\EnergeticIndicator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="T4_PR1.Model.UsingFiles">
+    <Position X="18" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="T4_PR1.Model.UsingFiles.CsvHelperTool" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\UsingFiles.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="T4_PR1.Model.UsingFiles.XMLHelperTool" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\UsingFiles.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="T4_PR1.Model.UsingFiles.JSONHelperTool" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\UsingFiles.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\UsingFiles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="T4._PR1.EnergyClasses.IEnergyCalculate" Collapsed="true">
+    <Position X="15.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAACAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\EnergyClasses\IEnergyCalculate.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="T4._PR1._Practica_1.EnegyClass.TypeEnergy" Collapsed="true">
+    <Position X="15.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAASAA=</HashCode>
+      <FileName>Model\EnergyClasses\EnergySystem.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

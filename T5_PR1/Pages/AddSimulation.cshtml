@@ -1,0 +1,63 @@
+﻿@page
+@model T5_PR1.Pages.AddSimulationModel
+@using T5._PR1._Practica_1.EnegyClass
+@{
+	ViewData["Title"] = "Afegir simulació";
+}
+<h1>@ViewData["Title"]</h1>
+<br />
+<form method="post">
+
+    <div class="form-group">
+		<label asp-for="SistemaEnergia.Name">Tipus de sistema</label>
+		<select id="selector" asp-for="SistemaEnergia.Name" asp-items="Html.GetEnumSelectList<TypeEnergy>()" class="form-control">
+			<option value="" selected>Selecciona un tipus de sistema</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label asp-for="SistemaEnergia.Rati">Rati del sistema</label>
+		<input asp-for="SistemaEnergia.Rati" class="form-control" value="" />
+		<span asp-validation-for="SistemaEnergia.Rati" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="SistemaEnergia.CostEnergy">Cost del sistema</label>
+		<input asp-for="SistemaEnergia.CostEnergy" class="form-control" value="" />
+		<span asp-validation-for="SistemaEnergia.CostEnergy" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="SistemaEnergia.PriceEnergy">Preu del sistema</label>
+		<input asp-for="SistemaEnergia.PriceEnergy" class="form-control" value="" />
+		<span asp-validation-for="SistemaEnergia.PriceEnergy" class="text-danger"></span>
+	</div>
+	<div id="sun" style="display: none;">
+		<div class="form-group">
+			<label asp-for="SistemaSolar.SunHours">Hores de sol</label>
+			<input asp-for="SistemaSolar.SunHours" class="form-control" value="" />
+			<span asp-validation-for="SistemaSolar.SunHours" class="text-danger"></span>
+		</div>
+	</div>
+	<div id="wind" style="display: none;">
+		<div class="form-group">
+			<label asp-for="SistemaEolic.WindVelocity">Velocitat del vent</label>
+			<input asp-for="SistemaEolic.WindVelocity" class="form-control" value="" />
+			<span asp-validation-for="SistemaEolic.WindVelocity" class="text-danger"></span>
+		</div>
+	</div>
+	<div id="water" style="display: none;">
+		<div class="form-group">
+			<label asp-for="SistemaHidroelectric.WaterFlow">Cabal d'aigua</label>
+			<input asp-for="SistemaHidroelectric.WaterFlow" class="form-control" value="" />
+			<span asp-validation-for="SistemaHidroelectric.WaterFlow" class="text-danger"></span>
+		</div>
+	</div>
+	
+	<br />
+
+ <button type="submit" class="btn btn-primary">Afegir</button>
+</form>
+@section Scripts {
+	<script src="~/js/ViewFormularySimulation.js"></script>
+	<partial name="_ValidationScriptsPartial" />
+}

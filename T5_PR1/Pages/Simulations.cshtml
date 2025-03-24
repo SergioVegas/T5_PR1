@@ -1,0 +1,67 @@
+﻿@page
+@model T5_PR1.Pages.SimulationsModel
+@{
+
+	ViewData["Title"] = "Simulacions";
+	string prevDisabled = Model.PageNumber <= 1 ? "disabled" : "";
+	string nextDisabled = Model.PageNumber >= Model.TotalPages ? "disabled" : "";
+}
+<h1>@ViewData["Title"]</h1>
+
+<br />
+<h2>Resum consum realitzats</h2>
+
+@if (Model.HeaderRow != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.DateSimulation)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.EnergyType)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.EnergyNeeded)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.CostEnergy)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.PriceEnergy)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.Rati)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.GeneratedEnergy)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.TotalPrice)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.TotalCost)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CurrentPageSimulations)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.DateSimulation)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EnergyType)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EnergyNeeded)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CostEnergy)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PriceEnergy)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Rati)</td>
+                    <td>@Html.DisplayFor(modelItem => item.GeneratedEnergy)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TotalPrice)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TotalCost)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hi ha dades disponibles.</p>
+}
+
+<div class="pagination">
+    <a asp-page="./WaterConsumption" asp-route-pageNumber="@(Model.PageNumber - 1)"
+       class="btn btn-primary @prevDisabled">
+        Anterior
+    </a>
+
+    <span>Pàgina @Model.PageNumber de @Model.TotalPages</span>
+
+    <a asp-page="./WaterConsumption" asp-route-pageNumber="@(Model.PageNumber + 1)"
+       class="btn btn-primary @nextDisabled">
+        Següent
+    </a>
+</div>
+<br />
+<a asp-page="./AddSimulation" class="btn btn-primary">Afegir</a>
