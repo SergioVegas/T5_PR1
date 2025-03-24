@@ -1,0 +1,136 @@
+﻿@page
+@model T4_PR1.Pages.WaterConsumptionModel
+@{
+	ViewData["Title"] = "Consum d'aigua";
+    string prevDisabled = Model.PageNumber <= 1 ? "disabled" : "";
+    string nextDisabled = Model.PageNumber >= Model.TotalPages ? "disabled" : "";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<br />
+
+<h2>Anàlisis estadístiques</h2>
+
+<h3>
+    Top 10 Municipis amb major consum
+</h3>
+@if (Model.Top10Municipalities.Any())
+{
+    <ul>
+        @foreach (var municipality in Model.Top10Municipalities)
+        {
+            <li>@municipality.Region - Consum Total: @municipality.Total</li>
+        }
+    </ul>
+}
+else
+{
+     <p>No hi ha dades disponitbles</p>
+}
+
+<h3>
+    Consum mitjà per comarca
+</h3>
+@if (Model.AverageConsumptionByRegion.Any())
+{
+    <ul>
+        @foreach (var average in Model.AverageConsumptionByRegion)
+        {
+            <li>@average.Comarca - Mitjana: @average.AverageConsumption</li>
+        }
+    </ul>
+}
+else
+{
+     <p>No hi ha dades disponitbles</p>
+}
+<h3>
+    Municipis amb consum sospitós
+</h3>
+@if (Model.SuspiciousConsumptionMunicipalities.Any())
+{
+    <ul>
+        @foreach (var consumption in Model.SuspiciousConsumptionMunicipalities)
+        {
+            <li>@consumption.Region - Consum Total: @consumption.Total</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No hi ha municipis suspitosos</p>
+}
+<h3>
+    Municipis amb tendència creixent en els últims 5 anys
+</h3>
+@if (Model.IncreasingTrendMunicipalities.Any())
+{
+    <ul>
+        @foreach (var municipality in Model.IncreasingTrendMunicipalities)
+        {
+            <li>@municipality.Region</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No hi ha municipis que incrementin seguidament durant els ultims 5 anys</p>
+}
+
+<br />
+
+<h2>Resum consum realitzats</h2>
+
+@if (Model.HeaderRow != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.Year)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.RegionCode)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.Region)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.Population)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.DomesticNet)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.EconomyActivity)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.Total)</th>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.DomesticConsumptionCapita)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CurrentPageWaterConsumptions)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Year)</td>
+                    <td>@Html.DisplayFor(modelItem => item.RegionCode)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Region)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Population)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DomesticNet)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EconomyActivity)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Total)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DomesticConsumptionCapita)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hi ha dades disponibles.</p>
+}
+
+<div class="pagination">
+    <a asp-page="./WaterConsumption" asp-route-pageNumber="@(Model.PageNumber - 1)"
+       class="btn btn-primary @prevDisabled">
+        Anterior
+    </a>
+
+    <span>Pàgina @Model.PageNumber de @Model.TotalPages</span>
+
+    <a asp-page="./WaterConsumption" asp-route-pageNumber="@(Model.PageNumber + 1)"
+       class="btn btn-primary @nextDisabled">
+        Següent
+    </a>
+</div>
+<br />
+<a asp-page="./AddWaterConsumption" class="btn btn-primary">Afegir</a>
