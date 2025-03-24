@@ -39,7 +39,7 @@ namespace T5_PR1.Pages
                 if(System.IO.File.Exists(filePathJson))
                 {
 
-                    UsingFiles.JsonHelperTool.ReadJsonFile(filePathJson, EnergeticIndicatorsJson);
+                    ///UsingFiles.JsonHelperTool.ReadJsonFile(filePathJson, EnergeticIndicatorsJson);
                     //Console.WriteLine("-------------> llegueixo el json");
                 }
               
