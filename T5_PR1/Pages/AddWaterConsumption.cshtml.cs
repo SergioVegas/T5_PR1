@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Xml.Linq;
-using T4_PR1.Model;
+using T5_PR1.Model;
 
-namespace T4_PR1.Pages
+namespace T5_PR1.Pages
 {
     public class AddWaterConsumptionModel : PageModel
     {

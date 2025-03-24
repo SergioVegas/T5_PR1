@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Globalization;
 using System.Xml.Linq;
-using T4_PR1.Model;
-using T4_PR1.Model.EnergyClasses;
+using T5_PR1.Model;
+using T5_PR1.Model.EnergyClasses;
 
-namespace T4_PR1.Pages
+namespace T5_PR1.Pages
 {
     public class SimulationsModel : PageModel
     {

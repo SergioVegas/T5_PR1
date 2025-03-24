@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Hosting;
 using System.Globalization;
-using T4._PR1._Practica_1.EnegyClass;
-using T4_PR1.Model.EnergyClasses;
+using T5._PR1._Practica_1.EnegyClass;
+using T5_PR1.Model.EnergyClasses;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace T4_PR1.Pages
+namespace T5_PR1.Pages
 {
     public class AddSimulationModel : PageModel
     {
