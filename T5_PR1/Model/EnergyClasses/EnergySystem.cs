@@ -21,7 +21,7 @@ namespace T5._PR1._Practica_1.EnegyClass
         public double CostEnergy { get; set; }
         [Required(ErrorMessage = "Aquest camp és obligatori")]
         public double PriceEnergy { get; set; }
-        [Required(ErrorMessage = "Aquest camp és obligatori")]
+        [Range(0.1, 0.3, ErrorMessage = "El rati ha d'estar entre 0.1 y 0.3.")]
         public double Rati { get; set; }
         public double GeneratedEnergy { get;  set; }
         public double TotalPrice { set; get; }

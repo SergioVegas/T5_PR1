@@ -14,7 +14,5 @@ namespace T5_PR1.Models
             public double? ConsumGasolina { get; set; }
             public double? DemandaElectrica { get; set; }
             public double? ProduccioDisponible { get; set; }
-
-        }
     }
 }

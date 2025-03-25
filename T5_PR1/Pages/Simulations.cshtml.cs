@@ -32,17 +32,18 @@ namespace T5_PR1.Pages
   
             try
             {
-                Simulations = UsingFiles.CsvHelperTool.ReadCsvFile<Simulation>(filePathCsv);
+                if (System.IO.File.Exists(filePathCsv)) {
+                    Simulations = UsingFiles.CsvHelperTool.ReadCsvFile<Simulation>(filePathCsv);
 
-                TotalPages = (int)Math.Ceiling((double)Simulations.Count / PageSize);
+                    TotalPages = (int)Math.Ceiling((double)Simulations.Count / PageSize);
 
-                // Obte les dades de la pagina actual
-                CurrentPageSimulations = Simulations
-                    .Skip((PageNumber - 1) * PageSize)
-                    .Take(PageSize)
-                    .ToList();
-                HeaderRow = CurrentPageSimulations.FirstOrDefault() ?? new Simulation(); //  Assegurem que sempre hi hagui una capçalera, agafant la primera linea del archiu o tornant una nova instancia
-
+                    // Obte les dades de la pagina actual
+                    CurrentPageSimulations = Simulations
+                        .Skip((PageNumber - 1) * PageSize)
+                        .Take(PageSize)
+                        .ToList();
+                    HeaderRow = CurrentPageSimulations.FirstOrDefault() ?? new Simulation(); //  Assegurem que sempre hi hagui una capçalera, agafant la primera linea del archiu o tornant una nova instancia
+                }
 
             }
             catch (Exception ex)
