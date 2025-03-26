@@ -10,12 +10,6 @@ namespace T5_PR1.Model
         public static void SeedEnergyIndicators(ApplicationDbContext context, string csvFilePath)
         {
             context.Database.EnsureCreated();
-
-            if (context.EnergyIndicators.Any())
-            {
-                return;   
-            }
-
             // Llegir el csv
             using (var reader = new StreamReader(csvFilePath))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
