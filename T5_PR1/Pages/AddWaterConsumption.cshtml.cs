@@ -15,8 +15,8 @@ namespace T5_PR1.Pages
         }
 
         [BindProperty]
-        public WaterConsumption WaterConsumption { get; set; }
-        public WaterConsumption NewWaterConsumption { get; set; } = new WaterConsumption();
+        public WaterConsumptionCsv WaterConsumption { get; set; }
+        public WaterConsumptionCsv NewWaterConsumption { get; set; } = new WaterConsumptionCsv();
         public string Message { get; set; } //variable per donar més detalls als errors
       
 

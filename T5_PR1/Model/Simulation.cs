@@ -1,9 +1,8 @@
 ﻿using CsvHelper.Configuration.Attributes;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using T5._PR1._Practica_1.EnegyClass;
 
-namespace T5_PR1.Model.EnergyClasses
+namespace T5_PR1.Model
 {
     public class Simulation
     {
@@ -12,8 +11,6 @@ namespace T5_PR1.Model.EnergyClasses
         public int id { get; set; }
         [Name("DataSimulacio")]
         public DateTime DateSimulation { get; set; }
-        [Name("TipusEnergia")]
-        public TypeEnergy EnergyType { get; set; }
         [Name("EnergiaNecessaria")]
         public double EnergyNeeded { get; set; }
         [Name("CostEnergetic")]

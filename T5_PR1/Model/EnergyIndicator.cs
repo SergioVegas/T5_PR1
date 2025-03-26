@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace T5_PR1.Models
+namespace T5_PR1.Model
 {
     [Table("IndicadorEnergia")]
-    public class EnergyIndicatorModel
+    public class EnergyIndicator
     {
             [Key]
             [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

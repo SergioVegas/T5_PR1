@@ -1,13 +1,12 @@
 ﻿@page
-@model T5_PR1.Pages.AddSimulationModel
-@using T5._PR1._Practica_1.EnegyClass
+@model T5_PR1.Pages.AddSimulationModel;
 @{
 	ViewData["Title"] = "Afegir simulació";
 }
 <h1>@ViewData["Title"]</h1>
 <br />
 <form method="post">
-
+	@*
     <div class="form-group">
 		<label asp-for="SistemaEnergia.Name">Tipus de sistema</label>
 		<select id="selector" asp-for="SistemaEnergia.Name" asp-items="Html.GetEnumSelectList<TypeEnergy>()" class="form-control">
@@ -52,7 +51,7 @@
 			<span asp-validation-for="SistemaHidroelectric.WaterFlow" class="text-danger"></span>
 		</div>
 	</div>
-	
+	*@
 	<br />
 
  <button type="submit" class="btn btn-primary">Afegir</button>

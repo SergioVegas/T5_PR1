@@ -4,13 +4,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Globalization;
 using System.Xml.Linq;
 using T5_PR1.Model;
-using T5_PR1.Model.EnergyClasses;
 
 namespace T5_PR1.Pages
 {
     public class SimulationsModel : PageModel
     {
-         private readonly ILogger<SimulationsModel> _logger;
+        private readonly ILogger<SimulationsModel> _logger;
         public SimulationsModel(ILogger<SimulationsModel> logger)
         {
             _logger = logger;

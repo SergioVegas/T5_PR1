@@ -16,18 +16,18 @@ namespace T5_PR1.Pages
             _logger = logger;
         }
 
-        public List<WaterConsumption> WaterConsumptions { get; set; } = new List<WaterConsumption>();
-        public List<WaterConsumption> CurrentPageWaterConsumptions { get; set; } = new List<WaterConsumption>(); // Dades de la pàgina actual
+        public List<WaterConsumptionCsv> WaterConsumptions { get; set; } = new List<WaterConsumptionCsv>();
+        public List<WaterConsumptionCsv> CurrentPageWaterConsumptions { get; set; } = new List<WaterConsumptionCsv>(); // Dades de la pàgina actual
         public int PageNumber { get; set; } = 1; // Pàgina actual del registres
         public int PageSize { get; set; } = 50; 
         public int TotalPages { get; set; } 
-        public WaterConsumption HeaderRow { get; set; } = new WaterConsumption();
+        public WaterConsumptionCsv HeaderRow { get; set; } = new WaterConsumptionCsv();
 
         // Propietats per less estadistiques
-        public List<WaterConsumption> Top10Municipalities { get; set; } = new List<WaterConsumption>();
+        public List<WaterConsumptionCsv> Top10Municipalities { get; set; } = new List<WaterConsumptionCsv>();
         public List<(string? Comarca, double AverageConsumption)> AverageConsumptionByRegion { get; set; } = new List<(string, double)>();
-        public List<WaterConsumption> SuspiciousConsumptionMunicipalities { get; set; } = new List<WaterConsumption>();
-        public List<WaterConsumption> IncreasingTrendMunicipalities { get; set; } = new List<WaterConsumption>();
+        public List<WaterConsumptionCsv> SuspiciousConsumptionMunicipalities { get; set; } = new List<WaterConsumptionCsv>();
+        public List<WaterConsumptionCsv> IncreasingTrendMunicipalities { get; set; } = new List<WaterConsumptionCsv>();
 
         public void OnGet(int? pageNumber)
         {
@@ -40,7 +40,7 @@ namespace T5_PR1.Pages
             string xmlFilePath = Path.Combine("ModelData","water_consumption_data.xml");
             try
             {
-                WaterConsumptions = UsingFiles.CsvHelperTool.ReadCsvFile<WaterConsumption>(filePathCsv);
+                WaterConsumptions = UsingFiles.CsvHelperTool.ReadCsvFile<WaterConsumptionCsv>(filePathCsv);
 
                 if (System.IO.File.Exists(xmlFilePath))
                 {                         
@@ -49,7 +49,7 @@ namespace T5_PR1.Pages
 
                        XDocument doc = XDocument.Load(xmlFilePath);
                        var  XmlWaterConsumptions = doc.Root.Elements("Consum")
-                           .Select(x => new WaterConsumption
+                           .Select(x => new WaterConsumptionCsv
                            {
                                Year = int.Parse(x.Element("Any").Value),
                                RegionCode = int.Parse(x.Element("CodiComarca").Value),
@@ -74,7 +74,7 @@ namespace T5_PR1.Pages
                     .Take(PageSize)
                     .ToList();
 
-                HeaderRow = CurrentPageWaterConsumptions.FirstOrDefault() ?? new WaterConsumption(); //  Assegurem que sempre hi hagui una capçalera, agafant la primera linea del archiu o tornant una nova instancia
+                HeaderRow = CurrentPageWaterConsumptions.FirstOrDefault() ?? new WaterConsumptionCsv(); //  Assegurem que sempre hi hagui una capçalera, agafant la primera linea del archiu o tornant una nova instancia
 
                
                 ConsumptionWaterAnalisis();
