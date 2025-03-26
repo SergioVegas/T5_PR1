@@ -11,6 +11,5 @@ namespace T5_PR1.Data
         public DbSet<EnergyIndicator> EnergyIndicators { get; set; }
         public DbSet<WaterConsumption> WaterConsumptions { get; set; }
 
-        
     }
 }

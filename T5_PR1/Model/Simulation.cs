@@ -21,9 +21,5 @@ namespace T5_PR1.Model
         public double Rati { get; set; }
         [Name("EnergiaGenerada")]
         public double GeneratedEnergy { get; set; }
-        [Name("PreuTotal")]
-        public double TotalPrice { set; get; }
-        [Name("CostTotal")]
-        public double TotalCost { set; get; }
     }
 }
