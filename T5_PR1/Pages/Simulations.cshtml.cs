@@ -1,19 +1,23 @@
+using CsvHelper;
 using CsvHelper.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Globalization;
 using System.Xml.Linq;
+using T5_PR1.Data;
 using T5_PR1.Model;
-using T5_PR1.Model.EnergyClasses;
 
 namespace T5_PR1.Pages
 {
     public class SimulationsModel : PageModel
     {
-         private readonly ILogger<SimulationsModel> _logger;
-        public SimulationsModel(ILogger<SimulationsModel> logger)
+        private readonly ILogger<SimulationsModel> _logger;
+        private readonly ApplicationDbContext _context;
+
+        public SimulationsModel(ILogger<SimulationsModel> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
         public List<Simulation> Simulations { get; set; } = new List<Simulation>();
         public List<Simulation> CurrentPageSimulations { get; set; } = new List<Simulation>(); // Dades de la pàgina actual
@@ -32,24 +36,19 @@ namespace T5_PR1.Pages
   
             try
             {
-                if (System.IO.File.Exists(filePathCsv)) {
-                    Simulations = UsingFiles.CsvHelperTool.ReadCsvFile<Simulation>(filePathCsv);
+                Simulations = _context.Simulations.ToList();
+                TotalPages = (int)Math.Ceiling((double)Simulations.Count / PageSize);
 
-                    TotalPages = (int)Math.Ceiling((double)Simulations.Count / PageSize);
-
-                    // Obte les dades de la pagina actual
-                    CurrentPageSimulations = Simulations
-                        .Skip((PageNumber - 1) * PageSize)
-                        .Take(PageSize)
-                        .ToList();
-                    HeaderRow = CurrentPageSimulations.FirstOrDefault() ?? new Simulation(); //  Assegurem que sempre hi hagui una capçalera, agafant la primera linea del archiu o tornant una nova instancia
-                }
-
+                //Obte les daes de la pàgina actual
+                CurrentPageSimulations = Simulations
+                    .Skip((PageNumber - 1) * PageSize)
+                    .Take(PageSize)
+                    .ToList();
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al llegir l'archiu CSV.");
-                ModelState.AddModelError(string.Empty, "Error al carrega les dades.");
+                _logger.LogError(ex, "Error carregant les dades.");
+                ModelState.AddModelError(string.Empty, "Error carregant less dades: " + ex.Message);
             }
         }
     }

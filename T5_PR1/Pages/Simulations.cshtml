@@ -17,14 +17,11 @@
         <thead>
             <tr>
                 <th>@Html.DisplayNameFor(model => model.HeaderRow.DateSimulation)</th>
-                <th>@Html.DisplayNameFor(model => model.HeaderRow.EnergyType)</th>
                 <th>@Html.DisplayNameFor(model => model.HeaderRow.EnergyNeeded)</th>
                 <th>@Html.DisplayNameFor(model => model.HeaderRow.CostEnergy)</th>
                 <th>@Html.DisplayNameFor(model => model.HeaderRow.PriceEnergy)</th>
                 <th>@Html.DisplayNameFor(model => model.HeaderRow.Rati)</th>
                 <th>@Html.DisplayNameFor(model => model.HeaderRow.GeneratedEnergy)</th>
-                <th>@Html.DisplayNameFor(model => model.HeaderRow.TotalPrice)</th>
-                <th>@Html.DisplayNameFor(model => model.HeaderRow.TotalCost)</th>
             </tr>
         </thead>
         <tbody>
@@ -32,14 +29,11 @@
             {
                 <tr>
                     <td>@Html.DisplayFor(modelItem => item.DateSimulation)</td>
-                    <td>@Html.DisplayFor(modelItem => item.EnergyType)</td>
                     <td>@Html.DisplayFor(modelItem => item.EnergyNeeded)</td>
                     <td>@Html.DisplayFor(modelItem => item.CostEnergy)</td>
                     <td>@Html.DisplayFor(modelItem => item.PriceEnergy)</td>
                     <td>@Html.DisplayFor(modelItem => item.Rati)</td>
                     <td>@Html.DisplayFor(modelItem => item.GeneratedEnergy)</td>
-                    <td>@Html.DisplayFor(modelItem => item.TotalPrice)</td>
-                    <td>@Html.DisplayFor(modelItem => item.TotalCost)</td>
                 </tr>
             }
         </tbody>

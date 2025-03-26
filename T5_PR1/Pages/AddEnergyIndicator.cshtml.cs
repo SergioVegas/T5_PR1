@@ -14,8 +14,8 @@ namespace T5_PR1.Pages
         }
 
         [BindProperty]
-        public EnergeticIndicator Indicador { get; set; }
-        public List<EnergeticIndicator> NewWEnergeticIndicator { get; set; } 
+        public EnergeticIndicatorCsv Indicador { get; set; }
+        public List<EnergeticIndicatorCsv> NewWEnergeticIndicator { get; set; } 
         public string Message { get; set; } //variable per donar més detalls als errors
 
 
@@ -32,16 +32,16 @@ namespace T5_PR1.Pages
                 if (System.IO.File.Exists(filePathJson))
                 {
                     string jsonFromFile = System.IO.File.ReadAllText(filePathJson);
-                    var deserializedIndicadors = System.Text.Json.JsonSerializer.Deserialize<List<EnergeticIndicator>>(jsonFromFile);
+                    var deserializedIndicadors = System.Text.Json.JsonSerializer.Deserialize<List<EnergeticIndicatorCsv>>(jsonFromFile);
                     NewWEnergeticIndicator = deserializedIndicadors.ToList();
                 }
                 else
                 {
-                    NewWEnergeticIndicator = new List<EnergeticIndicator>();
+                    NewWEnergeticIndicator = new List<EnergeticIndicatorCsv>();
                 }
               
                 //evitar inserir valors nuls al json
-                foreach (var propietat in typeof(EnergeticIndicator).GetProperties())
+                foreach (var propietat in typeof(EnergeticIndicatorCsv).GetProperties())
                 {
                     var valorActual = propietat.GetValue(Indicador);
                     if (valorActual == null)

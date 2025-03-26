@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace T5_PR1.Model
 {
-    public class EnergeticIndicator
+    public class EnergeticIndicatorCsv
     {
         [Name("Data")]
         [Required(ErrorMessage = "La Data  és obligatori.")]
-        public string? Data { get; set; }
+        public DateTime? Data { get; set; }
 
         [Name("PBEE_Hidroelectr")]
         public double PBEE_Hidroelectr { get; set; }
