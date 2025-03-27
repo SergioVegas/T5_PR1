@@ -65,7 +65,7 @@ namespace T5_PR1.Pages
                 ModelState.AddModelError(string.Empty, "Error eliminant la simulació: " + ex.Message);
             }
 
-            return RedirectToPage("./Simulacions", new { pageNumber = PageNumber });
+            return RedirectToPage("./Simulations", new { pageNumber = PageNumber });
         }
     }
 }
