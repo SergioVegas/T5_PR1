@@ -3,60 +3,48 @@
 @{
 	ViewData["Title"] = "Afegir simulació";
 }
-<h1>@ViewData["Title"]</h1>
-<br />
-<form method="post">
-	@*
-    <div class="form-group">
-		<label asp-for="SistemaEnergia.Name">Tipus de sistema</label>
-		<select id="selector" asp-for="SistemaEnergia.Name" asp-items="Html.GetEnumSelectList<TypeEnergy>()" class="form-control">
-			<option value="" selected>Selecciona un tipus de sistema</option>
-		</select>
-	</div>
-	<div class="form-group">
-		<label asp-for="SistemaEnergia.Rati">Rati del sistema</label>
-		<input asp-for="SistemaEnergia.Rati" class="form-control" value="" />
-		<span asp-validation-for="SistemaEnergia.Rati" class="text-danger"></span>
-	</div>
+<h1> @ViewData["Title"]</h1>
+<div class="row shadow">
+	<div class="col-md-4">
+		<form method="post">
+			<div class="form-group">
+				<label asp-for="simulacio.DateSimulation"> Data Simulació </label>
+				<input asp-for="simulacio.DateSimulation" class="form-control" />
+				<span asp-validation-for="simulacio.DateSimulation" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="simulacio.EnergyNeeded">Energia necessaria</label>
+				<input asp-for="simulacio.EnergyNeeded" class="form-control" />
+				<span asp-validation-for="simulacio.EnergyNeeded" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="simulacio.CostEnergy">Cost de l'energia</label>
+				<input asp-for="simulacio.CostEnergy" class="form-control" />
+				<span asp-validation-for="simulacio.CostEnergy" class="text-danger"></span>
+			</div>
 
-	<div class="form-group">
-		<label asp-for="SistemaEnergia.CostEnergy">Cost del sistema</label>
-		<input asp-for="SistemaEnergia.CostEnergy" class="form-control" value="" />
-		<span asp-validation-for="SistemaEnergia.CostEnergy" class="text-danger"></span>
+			<div class="form-group">
+				<label asp-for="simulacio.PriceEnergy">Preu de l'energia</label>
+				<input asp-for="simulacio.PriceEnergy" class="form-control" />
+				<span asp-validation-for="simulacio.PriceEnergy" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="simulacio.Rati">Rati</label>
+				<input asp-for="simulacio.Rati" class="form-control" />
+				<span asp-validation-for="simulacio.Rati" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="simulacio.GeneratedEnergy">Energia generada</label>
+				<input asp-for="simulacio.GeneratedEnergy" class="form-control" />
+				<span asp-validation-for="simulacio.GeneratedEnergy" class="text-danger"></span>
+			</div>
+			<div class="form-group mt-2">
+				<input type="submit" value="Afegir" class="btn btn-primary" />
+			</div>
+		</form>
 	</div>
+</div>
 
-	<div class="form-group">
-		<label asp-for="SistemaEnergia.PriceEnergy">Preu del sistema</label>
-		<input asp-for="SistemaEnergia.PriceEnergy" class="form-control" value="" />
-		<span asp-validation-for="SistemaEnergia.PriceEnergy" class="text-danger"></span>
-	</div>
-	<div id="sun" style="display: none;">
-		<div class="form-group">
-			<label asp-for="SistemaSolar.SunHours">Hores de sol</label>
-			<input asp-for="SistemaSolar.SunHours" class="form-control" value="" />
-			<span asp-validation-for="SistemaSolar.SunHours" class="text-danger"></span>
-		</div>
-	</div>
-	<div id="wind" style="display: none;">
-		<div class="form-group">
-			<label asp-for="SistemaEolic.WindVelocity">Velocitat del vent</label>
-			<input asp-for="SistemaEolic.WindVelocity" class="form-control" value="" />
-			<span asp-validation-for="SistemaEolic.WindVelocity" class="text-danger"></span>
-		</div>
-	</div>
-	<div id="water" style="display: none;">
-		<div class="form-group">
-			<label asp-for="SistemaHidroelectric.WaterFlow">Cabal d'aigua</label>
-			<input asp-for="SistemaHidroelectric.WaterFlow" class="form-control" value="" />
-			<span asp-validation-for="SistemaHidroelectric.WaterFlow" class="text-danger"></span>
-		</div>
-	</div>
-	*@
-	<br />
-
- <button type="submit" class="btn btn-primary">Afegir</button>
-</form>
 @section Scripts {
-	<script src="~/js/ViewFormularySimulation.js"></script>
 	<partial name="_ValidationScriptsPartial" />
 }
