@@ -24,7 +24,7 @@ namespace T5_PR1.Pages
             {
                 ModelState.AddModelError(string.Empty, "Error, id null");
             }
-            var simulation = _context.Simulations.FirstOrDefault(e => e.id == id);
+            var simulation = _context.Simulations.FirstOrDefault(e => e.Id == id);
             Simulations = simulation;
         }
         public IActionResult OnPost()

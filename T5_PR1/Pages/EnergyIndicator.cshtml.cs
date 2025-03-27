@@ -30,14 +30,8 @@ namespace T5_PR1.Pages
                 PageNumber = pageNumber.Value;
             }
 
-            string filePathCsv = Path.Combine("ModelData", "indicadors_energetics_cat.csv");
             try
             {
-                if (!_context.EnergyIndicators.Any()) // Cridem al metode seed si no hi ha dades a la taula.
-                {
-                    Seeding.SeedEnergyIndicators(_context, filePathCsv); 
-                }
-
                 EnergeticIndicators = _context.EnergyIndicators.ToList(); 
                 TotalPages = (int)Math.Ceiling((double)EnergeticIndicators.Count / PageSize);
 

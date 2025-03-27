@@ -9,7 +9,7 @@ namespace T5_PR1.Model
         private const string msgForm = "Aquest camp es obligatori.";
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        public int Id { get; set; }
         [Name("DataSimulacio")]
         [Required(ErrorMessage = msgForm)]
         public DateTime DateSimulation { get; set; }

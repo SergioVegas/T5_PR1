@@ -1,6 +1,5 @@
 ﻿using CsvHelper;
 using System.Globalization;
-using T5_PR1.Model;
 using T5_PR1.Data;
 
 namespace T5_PR1.Model
@@ -9,7 +8,6 @@ namespace T5_PR1.Model
     {
         public static void SeedEnergyIndicators(ApplicationDbContext context, string csvFilePath)
         {
-            context.Database.EnsureCreated();
             // Llegir el csv
             using (var reader = new StreamReader(csvFilePath))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
@@ -31,7 +29,6 @@ namespace T5_PR1.Model
         } 
         public static void SeedWaterConsumptions(ApplicationDbContext context, string csvFilePath)
         {
-            context.Database.EnsureCreated();
             // Llegir el csv
             using (var reader = new StreamReader(csvFilePath))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))

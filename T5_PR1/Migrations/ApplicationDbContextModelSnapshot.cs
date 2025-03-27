@@ -30,16 +30,16 @@ namespace T5_PR1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("Any")
+                    b.Property<int>("Any")
                         .HasColumnType("int");
 
-                    b.Property<double?>("ConsumGasolina")
+                    b.Property<double>("ConsumGasolina")
                         .HasColumnType("float");
 
-                    b.Property<double?>("DemandaElectrica")
+                    b.Property<double>("DemandaElectrica")
                         .HasColumnType("float");
 
-                    b.Property<double?>("ProduccioDisponible")
+                    b.Property<double>("ProduccioDisponible")
                         .HasColumnType("float");
 
                     b.Property<double>("ProduccioNeta")
@@ -52,11 +52,11 @@ namespace T5_PR1.Migrations
 
             modelBuilder.Entity("T5_PR1.Model.Simulation", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<double>("CostEnergy")
                         .HasColumnType("float");
@@ -76,7 +76,7 @@ namespace T5_PR1.Migrations
                     b.Property<double>("Rati")
                         .HasColumnType("float");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.ToTable("Simulations");
                 });
@@ -89,16 +89,17 @@ namespace T5_PR1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("Any")
+                    b.Property<int>("Any")
                         .HasColumnType("int");
 
                     b.Property<string>("Comarca")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Consum")
+                    b.Property<double>("Consum")
                         .HasColumnType("float");
 
-                    b.Property<int?>("Municipi")
+                    b.Property<int>("Municipi")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

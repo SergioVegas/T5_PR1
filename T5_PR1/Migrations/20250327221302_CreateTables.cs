@@ -17,10 +17,10 @@ namespace T5_PR1.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Comarca = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Municipi = table.Column<int>(type: "int", nullable: true),
-                    Consum = table.Column<double>(type: "float", nullable: true),
-                    Any = table.Column<int>(type: "int", nullable: true)
+                    Comarca = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Municipi = table.Column<int>(type: "int", nullable: false),
+                    Consum = table.Column<double>(type: "float", nullable: false),
+                    Any = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,11 +33,11 @@ namespace T5_PR1.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Any = table.Column<int>(type: "int", nullable: true),
+                    Any = table.Column<int>(type: "int", nullable: false),
                     ProduccioNeta = table.Column<double>(type: "float", nullable: false),
-                    ConsumGasolina = table.Column<double>(type: "float", nullable: true),
-                    DemandaElectrica = table.Column<double>(type: "float", nullable: true),
-                    ProduccioDisponible = table.Column<double>(type: "float", nullable: true)
+                    ConsumGasolina = table.Column<double>(type: "float", nullable: false),
+                    DemandaElectrica = table.Column<double>(type: "float", nullable: false),
+                    ProduccioDisponible = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,20 +48,18 @@ namespace T5_PR1.Migrations
                 name: "Simulations",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DateSimulation = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EnergyNeeded = table.Column<double>(type: "float", nullable: false),
                     CostEnergy = table.Column<double>(type: "float", nullable: false),
                     PriceEnergy = table.Column<double>(type: "float", nullable: false),
                     Rati = table.Column<double>(type: "float", nullable: false),
-                    GeneratedEnergy = table.Column<double>(type: "float", nullable: false),
-                    TotalPrice = table.Column<double>(type: "float", nullable: false),
-                    TotalCost = table.Column<double>(type: "float", nullable: false)
+                    GeneratedEnergy = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Simulations", x => x.id);
+                    table.PrimaryKey("PK_Simulations", x => x.Id);
                 });
         }
 

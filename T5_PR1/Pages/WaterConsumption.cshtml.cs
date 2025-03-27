@@ -1,11 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using T5_PR1.Model;
-using CsvHelper.Configuration;
-using CsvHelper;
-using System.Globalization;
-using System.Xml.Linq;
-using Microsoft.EntityFrameworkCore;
 using T5_PR1.Data;
 
 namespace T5_PR1.Pages
@@ -38,11 +33,6 @@ namespace T5_PR1.Pages
             string filePathCsv = Path.Combine("ModelData", "consum_aigua_cat_per_comarques.csv");
             try
             {
-                if (!_context.WaterConsumptions.Any()) // Cridem al metode seed si no hi ha dades a la taula.
-                {
-                    Seeding.SeedWaterConsumptions(_context, filePathCsv);
-                }
-
                 WaterConsumptions = _context.WaterConsumptions.ToList();
                 TotalPages = (int)Math.Ceiling((double)WaterConsumptions.Count / PageSize);
 
