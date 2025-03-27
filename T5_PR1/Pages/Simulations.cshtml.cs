@@ -51,5 +51,21 @@ namespace T5_PR1.Pages
                 ModelState.AddModelError(string.Empty, "Error carregant less dades: " + ex.Message);
             }
         }
+        public IActionResult OnPostDelete(int id)
+        {
+            var simulation = _context.Simulations.Find(id);
+            try
+            {
+                _context.Simulations.Remove(simulation);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error eliminant la simulació amb ID {Id}", id);
+                ModelState.AddModelError(string.Empty, "Error eliminant la simulació: " + ex.Message);
+            }
+
+            return RedirectToPage("./Simulacions", new { pageNumber = PageNumber });
+        }
     }
 }

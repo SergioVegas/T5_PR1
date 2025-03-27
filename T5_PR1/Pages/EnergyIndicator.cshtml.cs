@@ -53,5 +53,21 @@ namespace T5_PR1.Pages
                 ModelState.AddModelError(string.Empty, "Error carregant less dades: " + ex.Message);
             }
         }
+        public IActionResult OnPostDelete(int id)
+        {
+            var energyIndicator = _context.EnergyIndicators.Find(id);
+            try
+            {
+                _context.EnergyIndicators.Remove(energyIndicator);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error eliminant l'indicador energetic amb ID {Id}", id);
+                ModelState.AddModelError(string.Empty, "Error eliminant l'indicador energetic: " + ex.Message);
+            }
+
+            return RedirectToPage("./EnergyIndicator", new { pageNumber = PageNumber });
+        }
     }
 }

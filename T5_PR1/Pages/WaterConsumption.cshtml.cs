@@ -58,6 +58,21 @@ namespace T5_PR1.Pages
                 ModelState.AddModelError(string.Empty, "Error carregant less dades: " + ex.Message);
             }
         }
-    }
-    
+        public IActionResult OnPostDelete(int id)
+        {
+            var waterConsumption =  _context.WaterConsumptions.Find(id);
+            try
+            {
+                _context.WaterConsumptions.Remove(waterConsumption);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error eliminant el consum d'aigua amb ID {Id}", id);
+                ModelState.AddModelError(string.Empty, "Error eliminant el consum d'aigua: " + ex.Message);
+            }
+
+            return RedirectToPage("./WaterConsumption", new { pageNumber = PageNumber }); 
+        }
+    }  
 }

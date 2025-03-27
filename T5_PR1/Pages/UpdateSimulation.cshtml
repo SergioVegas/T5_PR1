@@ -1,0 +1,51 @@
+﻿@page
+@model T5_PR1.Pages.UpdateSimulationModel
+@{
+	ViewData["Title"] = "Editar simulació";
+}
+<h1> @ViewData["Title"]</h1>
+<div class="row shadow">
+	<div class="col-md-4">
+		<form method="post">
+			<input type="hidden" asp-for="Simulations.id" />
+			<div class="form-group">
+				<label asp-for="Simulations.DateSimulation"> Data Simulació </label>
+				<input asp-for="Simulations.DateSimulation" class="form-control"/>
+				<span asp-validation-for="Simulations.DateSimulation" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Simulations.EnergyNeeded">Energia necessaria</label>
+				<input asp-for="Simulations.EnergyNeeded" class="form-control"/>
+				<span asp-validation-for="Simulations.EnergyNeeded" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Simulations.CostEnergy">Cost de l'energia</label>
+				<input asp-for="Simulations.CostEnergy" class="form-control"/>
+				<span asp-validation-for="Simulations.CostEnergy" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="Simulations.PriceEnergy">Preu de l'energia</label>
+				<input asp-for="Simulations.PriceEnergy" class="form-control"/>
+				<span asp-validation-for="Simulations.PriceEnergy" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Simulations.Rati">Rati</label>
+				<input asp-for="Simulations.Rati" class="form-control"/>
+				<span asp-validation-for="Simulations.Rati" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Simulations.GeneratedEnergy">Energia generada</label>
+				<input asp-for="Simulations.GeneratedEnergy" class="form-control"/>
+				<span asp-validation-for="Simulations.GeneratedEnergy" class="text-danger"></span>
+			</div>
+			<div class="form-group mt-2">
+				<input type="submit" value="Actualitzar" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

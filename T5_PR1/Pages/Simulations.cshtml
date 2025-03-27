@@ -16,24 +16,39 @@
     <table class="table">
         <thead>
             <tr>
+                <th>@Html.DisplayNameFor(model => model.HeaderRow.id)</th>
                 <th>@Html.DisplayNameFor(model => model.HeaderRow.DateSimulation)</th>
                 <th>@Html.DisplayNameFor(model => model.HeaderRow.EnergyNeeded)</th>
                 <th>@Html.DisplayNameFor(model => model.HeaderRow.CostEnergy)</th>
                 <th>@Html.DisplayNameFor(model => model.HeaderRow.PriceEnergy)</th>
                 <th>@Html.DisplayNameFor(model => model.HeaderRow.Rati)</th>
                 <th>@Html.DisplayNameFor(model => model.HeaderRow.GeneratedEnergy)</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.CurrentPageSimulations)
             {
                 <tr>
+                    <td>@Html.DisplayFor(modelItem => item.id)</td>
                     <td>@Html.DisplayFor(modelItem => item.DateSimulation)</td>
                     <td>@Html.DisplayFor(modelItem => item.EnergyNeeded)</td>
                     <td>@Html.DisplayFor(modelItem => item.CostEnergy)</td>
                     <td>@Html.DisplayFor(modelItem => item.PriceEnergy)</td>
                     <td>@Html.DisplayFor(modelItem => item.Rati)</td>
                     <td>@Html.DisplayFor(modelItem => item.GeneratedEnergy)</td>
+                    <td>
+                        <a asp-page="./UpdateSimulation" asp-route-id="@item.id" class="btn btn-primary">Edit</a>
+                    </td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="id" value="@item.id" />
+                            <button type="submit" asp-page-handler="Delete" class="btn btn-danger"
+                                    onclick="return confirm('¿Estás segur que vols eliminar aquest element?')">
+                                Eliminar
+                            </button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>
