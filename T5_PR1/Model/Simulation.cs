@@ -24,7 +24,7 @@ namespace T5_PR1.Model
         public double PriceEnergy { get; set; }
         [Name("Rati")]
         [Required(ErrorMessage = msgForm)]
-        [Range(0.1, 0.3, ErrorMessage = "El rati ha d'estar entre 0.1 y 0.3")]
+        //[Range(0.1, 0.3, ErrorMessage = "El rati ha d'estar entre 0.1 y 0.3")] No hem detecta els decimals a l'hora d'afegir el camp en el formulari.Pero si es descomenta la validació funciona
         public double Rati { get; set; }
         [Name("EnergiaGenerada")]
         [Required(ErrorMessage = msgForm)]
