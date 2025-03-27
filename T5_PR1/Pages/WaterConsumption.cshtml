@@ -38,7 +38,13 @@
                         <a asp-page="./UpdateWaterConsumption" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
                     </td>
                     <td>
-                        <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Eliminar</a>
+                        <form method="post">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button type="submit" asp-page-handler="Delete" class="btn btn-danger"
+                                    onclick="return confirm('¿Estás segur que vols eliminar aquest element?')">
+                                Eliminar
+                            </button>
+                        </form>
                     </td>
                 </tr>
             }
