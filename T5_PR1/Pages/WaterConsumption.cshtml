@@ -35,14 +35,14 @@
                     <td>@Html.DisplayFor(modelItem => item.Consum)</td>
                     <td>@Html.DisplayFor(modelItem => item.Any)</td>
                     <td>
-                        <a asp-page="./UpdateWaterConsumption" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                        <a asp-page="./UpdateWaterConsumption" asp-route-id="@item.Id" class="btn btn-primary"><i class="bi bi-pencil-square"></i>Edit</a>
                     </td>
                     <td>
                         <form method="post">
                             <input type="hidden" name="id" value="@item.Id" />
                             <button type="submit" asp-page-handler="Delete" class="btn btn-danger"
                                     onclick="return confirm('¿Estás segur que vols eliminar aquest element?')">
-                                Eliminar
+                                <i class="bi bi-trash3"></i> Eliminar
                             </button>
                         </form>
                     </td>
