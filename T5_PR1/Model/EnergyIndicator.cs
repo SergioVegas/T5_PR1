@@ -9,6 +9,7 @@ namespace T5_PR1.Model
             [Key]
             [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int Id { get; set; }
+            [Required(ErrorMessage = "L'any és obligatori.")]
             public int? Any { get; set; }
             public double ProduccioNeta { get; set; }
             public double? ConsumGasolina { get; set; }

@@ -27,7 +27,7 @@ namespace T5_PR1.Pages
             var energyIndicator = _context.EnergyIndicators.FirstOrDefault(e=> e.Id == id);
             EnergyIndicators = energyIndicator;
         }
-        public void OnPost()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
@@ -35,7 +35,7 @@ namespace T5_PR1.Pages
             }
             _context.EnergyIndicators.Update(EnergyIndicators);
             _context.SaveChanges();
-            RedirectToPage("/EnergyIndicator");
+            return RedirectToPage("/EnergyIndicator");
         }
     }
 }
