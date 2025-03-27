@@ -18,6 +18,7 @@
             <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().ConsumGasolina)</th>
             <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().DemandaElectrica)</th>
             <th>@Html.DisplayNameFor(model => model.CurrentPageEnergeticIndicators.FirstOrDefault().ProduccioDisponible)</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +31,12 @@
                 <td>@Html.DisplayFor(modelItem => item.ConsumGasolina)</td>
                 <td>@Html.DisplayFor(modelItem => item.DemandaElectrica)</td>
                 <td>@Html.DisplayFor(modelItem => item.ProduccioDisponible)</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-itemid="@item.Id" class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a asp-page="./Delete" asp-route-itemid="@item.Id" class="btn btn-danger">Eliminar</a>
+                </td>
             </tr>
         }
     </tbody>
