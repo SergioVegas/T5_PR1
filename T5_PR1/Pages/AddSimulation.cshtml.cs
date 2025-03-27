@@ -25,7 +25,6 @@ namespace T5_PR1.Pages
         public Simulation simulacio { get; set; }
         public string Message { get; set; } //variable per donar més detalls als errors
 
-
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)

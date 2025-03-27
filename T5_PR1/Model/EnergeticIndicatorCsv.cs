@@ -6,7 +6,6 @@ namespace T5_PR1.Model
     public class EnergeticIndicatorCsv
     {
         [Name("Data")]
-        [Required(ErrorMessage = "La Data  és obligatori.")]
         public DateTime? Data { get; set; }
 
         [Name("PBEE_Hidroelectr")]
@@ -34,14 +33,12 @@ namespace T5_PR1.Model
         public double CDEEBC_ConsumAux { get; set; }
 
         [Name("CDEEBC_ProdNeta")]
-        [Required(ErrorMessage = "El CDEEBC_ProdNeta  és obligatori.")]
         public double CDEEBC_ProdNeta { get; set; }
 
         [Name("CDEEBC_ConsumBomb")]
         public double CDEEBC_ConsumBomb { get; set; }
 
         [Name("CDEEBC_ProdDisp")]
-        [Required(ErrorMessage = "El CDEEBC_ProdDisp  és obligatori.")]
         public double CDEEBC_ProdDisp { get; set; }
 
         [Name("CDEEBC_TotVendesXarxaCentral")]
@@ -51,7 +48,6 @@ namespace T5_PR1.Model
         public double CDEEBC_SaldoIntercanviElectr { get; set; }
 
         [Name("CDEEBC_DemandaElectr")]
-        [Required(ErrorMessage = "El CDEEBC_DemandaElectr  és obligatori.")]
         public double CDEEBC_DemandaElectr { get; set; }
 
 
@@ -142,7 +138,6 @@ namespace T5_PR1.Model
         public double DGGN_ConsumGNCentrTerm { get; set; }
 
         [Name("CCAC_GasolinaAuto")]
-        [Required(ErrorMessage = "El CCAC_GasolinaAuto  és obligatori.")]
         public double CCAC_GasolinaAuto { get; set; }
 
         [Name("CCAC_GasoilA")]
