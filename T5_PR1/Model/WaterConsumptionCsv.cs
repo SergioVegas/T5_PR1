@@ -38,9 +38,5 @@ namespace T5_PR1.Model
         [Name("Consum domèstic per càpita")]
         public double DomesticConsumptionCapita { get; set; }
 
-        public override string ToString()
-        {
-            return $"Any: {Year}, Comarca: {Region}, Població: {Population}, Total: {Total}";
-        }
     }
 }
