@@ -1,0 +1,47 @@
+﻿@page
+@model UpdateEnergyIndicatorlModel
+@{
+	ViewData["Title"] = "Editar indicador energetic";
+}
+<h1> @ViewData["Title"]</h1>
+<div class="row shadow">
+	<div class="col-md-4">
+		<form method="post">
+			<input type="hidden" asp-for="EnergyIndicators.Id" />
+			<div class="form-group">
+				<label asp-for="EnergyIndicators.Any">Any</label>
+				<<input asp-for="EnergyIndicators.Any" class="form-control" value="" />
+				<span asp-validation-for="EnergyIndicators.Any" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="EnergyIndicators.ProduccioNeta">Producció Neta</label>
+				<input asp-for="EnergyIndicators.ProduccioNeta" class="form-control" value="" />
+				<span asp-validation-for="EnergyIndicators.ProduccioNeta" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="EnergyIndicators.ConsumGasolina">Consum Gasolina</label>
+				<input asp-for="EnergyIndicators.ConsumGasolina" class="form-control" value="" />
+				<span asp-validation-for="EnergyIndicators.ConsumGasolina" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="EnergyIndicators.DemandaElectrica">Demanda Electrica</label>
+				<input asp-for="EnergyIndicators.DemandaElectrica" class="form-control" value="" />
+				<span asp-validation-for="EnergyIndicators.DemandaElectrica" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="EnergyIndicators.ProduccioDisponible">Producció Disponible</label>
+				<input asp-for="EnergyIndicators.ProduccioDisponible" class="form-control" value="" />
+				<span asp-validation-for="EnergyIndicators.ProduccioDisponible" class="text-danger"></span>
+			</div>
+			<div class="form-group mt-2">
+				<input type="submit" value="Actualitzar" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

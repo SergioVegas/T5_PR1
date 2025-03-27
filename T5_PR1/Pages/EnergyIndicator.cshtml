@@ -32,10 +32,10 @@
                 <td>@Html.DisplayFor(modelItem => item.DemandaElectrica)</td>
                 <td>@Html.DisplayFor(modelItem => item.ProduccioDisponible)</td>
                 <td>
-                    <a asp-page="./Edit" asp-route-itemid="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-page="./UpdateEnergyIndicator" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                    <a asp-page="./Delete" asp-route-itemid="@item.Id" class="btn btn-danger">Eliminar</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         }

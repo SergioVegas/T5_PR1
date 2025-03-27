@@ -19,8 +19,6 @@ namespace T5_PR1.Pages
             System.IO.Directory.CreateDirectory("Files");
 
 
-        
-
             return RedirectToPage("/Simulations");
 
         }
